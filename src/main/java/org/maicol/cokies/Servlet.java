@@ -30,7 +30,7 @@ public class Servlet extends HttpServlet {
             // Verificar si las cookies ya existen
             if (cookies != null) {
                 for (Cookie cookie : cookies) {
-                    if (cookie.getName().equals("VisitanteRecurrente") && cookie.getValue().equals("si")) {
+                    if (cookie.getName().equals("Visitas") && cookie.getValue().equals("si")) {
                         nuevoUsuario = false;
                     }
                     if (cookie.getName().equals("contadorVisitas")) {
@@ -42,7 +42,7 @@ public class Servlet extends HttpServlet {
             // Si el usuario es nuevo inicia en 1 para contar su vistia
             if (nuevoUsuario) {
                 contadorVisitas = 1;
-                Cookie visitante = new Cookie("VisitanteRecurrente", "si");
+                Cookie visitante = new Cookie("Visitas", "si");
                 res.addCookie(visitante);
             } else {
                 // Si no es un nuevo usuario, incrementamos el contador
